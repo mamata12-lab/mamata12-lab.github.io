@@ -1,3 +1,6 @@
+body {
+    font-family: "Inter", sans-serif;
+}
 
 header { 
         background-image: url(images/glass_hero.jpg);
@@ -15,13 +18,17 @@ header {
 header h1 {
     color: #F5F0EA;
     margin: 0;
-    font-size: 3em;
+    font-size: 2.25em;
 }
 
 header h3 {
     color: #F5F0EA;
     margin-top: 0.5em;
     margin-bottom: 0;
+}
+
+h1, h2, h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
 }
 
 nav { 
@@ -36,8 +43,6 @@ nav ul {
         margin: 0;
         padding-left: 0;
         font-size: 1.2em;
-        display: flex;
-        justify-content: space-around;
     }
 
 nav a { 
@@ -56,22 +61,38 @@ nav a:hover {
         color: #ED7048;
     }
 
+nav li {
+    padding: 0.5em;
+}
+
 main {
-    margin-left: 2em;
-    margin-right: 2em;
-    margin-bottom: 2em;
+    margin: 0 1em 2em;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr;
     gap: 2em;
 }
 
 footer {
-    border-top: 1px solid #333333;
-    margin-top: 1em;
+    background-color: var(--footer-color);
+    color: #F5F0EA;
+    margin-top: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2em;
     padding: 1em;
+}
+
+footer h3 {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+.tagline {
+    color: #F5F0EA;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    font-size: 1.25em;
+    font-weight: bold;
 }
 
 .main-image {
@@ -86,17 +107,135 @@ footer {
 
 .footer-nav a {
     display: block;
+    line-height: 1.4;
     text-decoration: none;
 }
 
+.footer-nav a:link,
+.footer-nav a:visited,
+.footer-feedback a:link,
+.footer-feedback a:visited {
+    color: #F5F0EA;
+    text-decoration: none;
+}
+
+.footer-nav a:hover,
+.footer-feedback a:hover {
+    color: #ED7048;
+}
+
+.footer-wave {
+    line-height: 0;
+    margin-bottom: -1px;
+}
+
+.footer-wave svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.footer-feedback p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
 #wrapper {
-    color: 121426;
+    color: #121426;
     background-color: #F5F0EA;
-    border: 1px solid #333333;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    min-width: 960px;
-    max-width: 2048px;
-    box-shadow: 3px 3px 3px #333333;
+    width: 100%;
+}
+
+#wave-back {
+    fill: var(--wave-back-color);
+}
+
+#wave-foam {
+    fill: var(--wave-foam-color);
+}
+
+#wave-front {
+    fill: var(--wave-front-color);
+}
+
+:root {
+    --footer-color: #263665;
+    --wave-back-color: #263665;
+    --wave-front-color: #4D82A3;
+    --wave-foam-color: #d9ede7;
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+    header {
+        grid-area: header;
+    }
+    
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    nav {
+        grid-area: nav;
+        text-align: left;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        grid-area: main;
+        grid-template-columns: 1fr;
+        margin-top: 1em;
+    }
+
+    footer {
+        grid-area: footer;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .tagline {
+        font-size: 2em;
+    }
+
+    .footer-wave {
+        grid-area: wave;
+    }
+
+    #wrapper {
+        display: grid;
+        grid-template-columns: 12em 1fr;
+        grid-template-areas:
+            "header header"
+            "nav main"
+            "wave wave"
+            "footer footer";
+    }
+}
+
+@media (min-width: 1024px) {
+    #wrapper {
+        display: block;
+        width: 80%;
+        max-width: 2048px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid #333333;
+        box-shadow: 3px 3px 3px #333333;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+
+    main {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    footer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

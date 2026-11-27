@@ -49,12 +49,9 @@ nav a {
         text-decoration: none; 
     }
 
-nav a:link {
-        color: #121426;
-    }
-
+nav a:link,
 nav a:visited {
-        color: #7956A8;
+        color: #121426;
     }
 
 nav a:hover {
